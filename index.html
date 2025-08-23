@@ -1,163 +1,233 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automotive Propulsion Control Laboratory</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header {
-      background: #003366;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-    }
-    nav {
-      margin-top: 10px;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      color: #003366;
-      margin-top: 40px;
-    }
-    .research-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 40px;
-      gap: 20px;
-    }
-    .research-item img {
-      max-width: 300px;
-      height: auto;
-      border-radius: 8px;
-      flex-shrink: 0;
-    }
-    .research-text {
-      flex: 1;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #f4f4f4;
-      margin-top: 40px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Automotive Propulsion Control Laboratory</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#people">People</a>
-      <a href="#research">Research</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Automotive Propulsion Control Laboratory (APCL) – University of Minnesota</title>
+    <meta name="description" content="Automotive Propulsion Control Laboratory (APCL) at the University of Minnesota. Research in mechatronics and advanced control for automotive propulsion systems." />
 
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      The Automotive Propulsion Control Laboratory (APCL) aims at transforming the energy storage, 
-      conversion and power transfer processes for automobiles and other mobile applications with 
-      mechatronic systems and advanced control methodologies.
-    </p>
-  </section>
+    <!-- Favicon (optional) -->
+    <link rel="icon" href="images/umn-block-m.png" />
 
-  <section id="people">
-    <h2>People</h2>
-    <p><strong>Prof. Zongxuan Sun</strong><br>
-       Principal Investigator<br>
-       <img src="zongxuan_sun.jpg" alt="Prof. Zongxuan Sun" width="200">
-    </p>
-    <p>Other members: To be added</p>
-  </section>
+    <style>
+      :root {
+        --umn-maroon: #7A0019;
+        --umn-gold: #FFCC33;
+        --ink: #0f172a;           /* slate-900 */
+        --muted: #475569;         /* slate-600 */
+        --surface: #f8fafc;       /* slate-50 */
+        --card: #ffffff;
+        --ring: rgba(122,0,25,.25);
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+        color: var(--ink); background: var(--surface);
+      }
+      a { color: var(--umn-maroon); text-decoration: none; }
+      a:hover { text-decoration: underline; }
 
-  <section id="research">
-    <h2>Research</h2>
+      /* Header */
+      .topbar { background: var(--umn-maroon); color: #fff; }
+      .topbar-inner { max-width: 1100px; margin: 0 auto; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+      .brand { display: flex; align-items: center; gap: 12px; }
+      .brand .m { width: 36px; height: 36px; border-radius: 6px; background: var(--umn-gold); display: grid; place-items: center; font-weight: 900; color: var(--umn-maroon); }
+      .title { font-weight: 800; font-size: 18px; line-height: 1.1; }
+      .subtitle { font-size: 12px; opacity: .95; }
 
-    <div class="research-item">
-      <div class="research-text">
-        <h3>Tracking Control Theory Development</h3>
-        <p>
-          In engineered systems, a large class involves creating motions following certain desired trajectories...
-          To gain flexibility for controlling the critical dynamics, we propose to replace the mechanical components with electronically controlled mechatronic actuators.
-        </p>
+      /* Tabs Nav */
+      .navwrap { background: #fff; border-bottom: 1px solid #e2e8f0; }
+      .tabs { max-width: 1100px; margin: 0 auto; padding: 0 8px; display: flex; gap: 6px; overflow-x: auto; }
+      .tabbtn {
+        appearance: none; border: 1px solid transparent; background: transparent; color: var(--umn-maroon); font-weight: 600;
+        padding: 12px 14px; border-radius: 10px; cursor: pointer; margin: 8px 0;
+      }
+      .tabbtn[aria-selected="true"] { background: var(--umn-gold); color: #000; border-color: #eab308; box-shadow: 0 0 0 3px var(--ring); }
+      .tabbtn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+
+      /* Layout */
+      .container { max-width: 1100px; margin: 0 auto; padding: 24px 20px; }
+      .card { background: var(--card); border: 1px solid #e2e8f0; border-radius: 16px; box-shadow: 0 6px 20px rgba(2,8,23,.04); padding: 20px; }
+      .grid-2 { display: grid; grid-template-columns: 1fr; gap: 20px; }
+      @media (min-width: 900px) { .grid-2 { grid-template-columns: 1.1fr .9fr; gap: 28px; } }
+      .lead { font-size: 18px; line-height: 1.65; color: var(--ink); }
+      .muted { color: var(--muted); font-size: 14px; }
+      .img-round { width: 104px; height: 104px; border-radius: 999px; object-fit: cover; border: 2px solid #e2e8f0; }
+
+      /* People lists */
+      .section-title { color: var(--umn-maroon); font-weight: 800; margin: 28px 0 12px; font-size: 20px; }
+      .people-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+      .person { display: grid; grid-template-columns: 104px 1fr; gap: 14px; align-items: center; background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 14px; }
+      .person h4 { margin: 0 0 4px; font-size: 16px; }
+      .person .role { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+      .person .meta { font-size: 13px; }
+
+      /* Sections */
+      [data-tab] { display: none; }
+      [data-tab].active { display: block; }
+
+      /* Footer */
+      footer { border-top: 1px solid #e2e8f0; background: #fff; }
+      .foot { max-width: 1100px; margin: 0 auto; padding: 20px; font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+      /* Utility */
+      .btn { display: inline-block; padding: 10px 14px; border-radius: 12px; border: 1px solid #e2e8f0; background: #fff; cursor: pointer; }
+      .btn:hover { background: #f1f5f9; }
+      .note { background: #fffbeb; border: 1px solid #fde68a; padding: 12px 14px; border-radius: 12px; }
+      ul.clean { margin: 6px 0; padding-left: 18px; }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="topbar" role="banner">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="m" aria-hidden="true">M</div>
+          <div>
+            <div class="title">Automotive Propulsion Control Laboratory (APCL)</div>
+            <div class="subtitle">University of Minnesota</div>
+          </div>
+        </div>
       </div>
-      <img src="tracking_control.jpg" alt="Tracking Control">
     </div>
 
-    <div class="research-item">
-      <div class="research-text">
-        <h3>Camless Engine</h3>
-        <p>
-          The motivation to improve fuel efficiency and reduce emissions of the internal combustion engine comes from 
-          dwindling oil reserves and increased concerns about climate change...
-        </p>
+    <!-- Tabs Navigation -->
+    <div class="navwrap" role="navigation" aria-label="Primary">
+      <div class="tabs" role="tablist">
+        <button class="tabbtn" role="tab" aria-selected="true" aria-controls="tab-description" id="tabbtn-description">Description</button>
+        <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab-people" id="tabbtn-people">People</button>
+        <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab-Research" id="tabbtn-Research">Research</button>
+        <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab-publications" id="tabbtn-publications">Publications</button>
+        <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab-news" id="tabbtn-news">News & Open Positions</button>
       </div>
-      <img src="camless_engine.jpg" alt="Camless Engine">
     </div>
 
-    <div class="research-item">
-      <div class="research-text">
-        <h3>Free Piston Engine</h3>
-        <p>
-          The free piston engine is one of the alternatives of the conventional internal combustion engines. Instead of crank shaft,
-          the pistons are synchronized by hydraulic fluids and can vary the compression ratio...
-        </p>
-      </div>
-      <img src="free_piston.jpg" alt="Free Piston Engine">
-    </div>
+    <main class="container" id="main">
+      <!-- Description -->
+      <section id="tab-description" class="card grid-2" role="tabpanel" aria-labelledby="tabbtn-description" data-tab>
+        <div>
+          <img src="images/lab-photo.jpg" alt="APCL lab or research photo placeholder" style="width:100%; border-radius:16px; border:1px solid #e2e8f0;" />
+          <p class="muted" style="margin-top:8px;">Replace <code>images/lab-photo.jpg</code> with your own image.</p>
+        </div>
+        <div>
+          <p class="lead">
+            The Automotive Propulsion Control Laboratory (APCL) aims at transforming the energy storage, conversion and power transfer processes for automobiles and other mobile applications with mechatronic systems and advanced control methodologies. We investigate the replacement of mechanical components in the automotive propulsion system with electronically controlled mechatronic actuators so that significant reduction of energy consumption and emissions can be achieved. The mechatronic propulsion system and advanced control can not only improve system efficiency but also enable renewable energy for transportation. The research activities include control theory development for tracking and disturbance rejection, modeling and control of automotive propulsion systems, and design of novel actuators.
+          </p>
+        </div>
+      </section>
 
-    <div class="research-item">
-      <div class="research-text">
-        <h3>Common Rail Fuel Injection System</h3>
-        <p>
-          Compared to traditional fuel metering systems such as carburetors, direct fuel injection provides more flexible and 
-          precise fuel supply. This helps engineers design engines with low emissions without compromising power output.
-        </p>
-      </div>
-      <img src="common_rail.jpg" alt="Common Rail Fuel Injection">
-    </div>
+      <!-- People -->
+      <section id="tab-people" class="card" role="tabpanel" aria-labelledby="tabbtn-people" data-tab>
+        <h3 class="section-title">Principal Investigator</h3>
+        <div class="people-grid" style="margin-bottom:10px;">
+          <div class="person">
+            <img src="images/zsun.jpg" alt="Prof. Zongxuan Sun" class="img-round" />
+            <div>
+              <h4>Prof. Zongxuan Sun</h4>
+              <div class="role">Professor</div>
+              <div class="meta">Email: <a href="mailto:zsun@umn.edu">zsun@umn.edu</a></div>
+              <div class="meta">Phone: 612-625-2107</div>
+            </div>
+          </div>
+        </div>
 
-    <div class="research-item">
-      <div class="research-text">
-        <h3>Transmission</h3>
-        <p>
-          Transmission is a critical part of the automotive propulsion systems. It is undergoing significant changes with 
-          stricter fuel economy standards, hybrid powertrains, and advanced combustion strategies.
-        </p>
-      </div>
-      <img src="transmission.jpg" alt="Transmission">
-    </div>
+        <h3 class="section-title">Postdoctoral Researchers</h3>
+        <div class="people-grid">
+          <div class="person">
+            <img src="images/berk-altiner.jpg" alt="Dr. Berk Altiner" class="img-round" />
+            <div>
+              <h4>Dr. Berk Altiner</h4>
+              <div class="role">Postdoctoral Researcher</div>
+              <div class="meta">Email: <em>altin009@umn.edu</em></div>
+            </div>
+          </div>
+          <div class="person">
+            <img src="images/arunava-banerjee.jpg" alt="Dr. Arunava Banerjee" class="img-round" />
+            <div>
+              <h4>Dr. Arunava Banerjee</h4>
+              <div class="role">Postdoctoral Researcher</div>
+              <div class="meta">Email: <em>abanerje@umn.edu</em></div>
+            </div>
+          </div>
+          <div class="person">
+            <img src="images/rajasree-sarkar.jpg" alt="Dr. Rajasree Sarkar" class="img-round" />
+            <div>
+              <h4>Dr. Rajasree Sarkar</h4>
+              <div class="role">Postdoctoral Researcher</div>
+              <div class="meta">Email: <em>sarka122@umn.edu</em></div>
+            </div>
+          </div>
+        </div>
 
-    <div class="research-item">
-      <div class="research-text">
-        <h3>Hybrid Powertrain Research Platform</h3>
-        <p>
-          To provide an accurate and flexible hybrid powertrain emulation tool, a rapid prototyping hybrid powertrain research 
-          platform is constructed. It employs a transient hydrostatic dynamometer that emulates various hybrid sources...
-        </p>
-      </div>
-      <img src="hybrid_powertrain.jpg" alt="Hybrid Powertrain">
-    </div>
-  </section>
+        <h3 class="section-title">Graduate Students</h3>
+        <div class="people-grid">
+          <div class="person">
+            <img src="images/aswath-govindaraju.jpg" alt="Aswath Govindaraju" class="img-round" />
+            <div>
+              <h4>Sathya Aswath Govind Raju</h4>
+              <div class="role">Graduate Student</div>
+              <div class="meta">Email: <em>govin091@umn.edu</em></div>
+            </div>
+          </div>
+          <div class="person">
+            <img src="images/aditya-patil.jpg" alt="Aditya Patil" class="img-round" />
+            <div>
+              <h4>Aditya Patil</h4>
+              <div class="role">Graduate Student</div>
+              <div class="meta">Email: <em>patil255@umn.edu</em></div>
+            </div>
+          </div>
+        </div>
 
- 
+        <h3 class="section-title">Past Students</h3>
+        <p class="muted">Information will be added here.</p>
+        <div class="note" style="margin-top:10px;">
+        </div>
+      </section>
+
+      <!-- Research -->
+      <section id="research">
+  <h2>Research</h2>
+
+  <div class="research-item">
+    <h3>Tracking Control Theory Development</h3>
+    <img src="images/tracking_control.jpg" alt="Tracking Control" style="width:200px; float:right; margin:10px;">
+    <p>In engineered systems, a large class involves creating motions following certain desired trajectories. For the automotive propulsion system, such motions are generated by interconnected complex mechanical systems. For example, the camshaft that is connected to the crankshaft opens and closes the intake and exhaust valves. The piston that forms the combustion chamber is also connected to the crankshaft. Those mechanical motions control the gas exchange and compression dynamics and directly affect the combustion efficiency and emissions. To gain flexibility for controlling the critical dynamics, we propose to replace the mechanical components with electronically controlled mechatronic actuators. However, once the mechanical links are removed, the ability to ensure precise motion of the mechatronic systems becomes necessary, which leads to this work.</p>
+  </div>
+
+  <div class="research-item">
+    <h3>Camless Engine</h3>
+    <img src="images/camless_engine.jpg" alt="Camless Engine" style="width:200px; float:right; margin:10px;">
+    <p>The motivation to improve fuel efficiency and reduce missions of the internal combustion engine comes from the dwindling oil reserves and the increased concerns about climate change. A key step towards realizing these improvements is to introduce flexibilities into the fundamental subsystems used for air and fuel management. Traditional air management systems use camshaft based mechanisms to actuate the intake/exhaust valves and have very little or no flexibility. The benefits offered by fully flexible valve actuation motivate the development of electronically controlled “Camless valve actuation systems”.</p>
+  </div>
+
+  <div class="research-item">
+    <h3>Free Piston Engine</h3>
+    <img src="images/free_piston.jpg" alt="Free Piston Engine" style="width:200px; float:right; margin:10px;">
+    <p>The free piston engine is one of the alternatives of the conventional internal combustion engines. Instead of crank shaft, the pistons are synchronized by the hydraulic fluids and are able to vary the compression ratio. This technology provides a compact engine with high efficiency, while in the meantime, imposes control challenges in terms of precise and robust engine operation.</p>
+  </div>
+
+  <div class="research-item">
+    <h3>Common Rail Fuel Injection System</h3>
+    <img src="images/fuel_injection.jpg" alt="Fuel Injection" style="width:200px; float:right; margin:10px;">
+    <p>Compared to traditional fuel metering system, such as the carburetor and port fuel injection, the direct fuel injection can provide more flexible and more precise fuel supply. This helps engineers to design an engine to achieve desired fuel consumption and low emission without compromising on power output.</p>
+  </div>
+
+  <div class="research-item">
+    <h3>Transmission</h3>
+    <img src="images/transmission.jpg" alt="Transmission" style="width:200px; float:right; margin:10px;">
+    <p>Transmission is a critical part of the automotive propulsion systems. It is undergoing significant changes as the development of more stringent fuel economy, hybrid powertrain, and advanced combustions.</p>
+  </div>
+
+  <div class="research-item">
+    <h3>Hybrid Powertrain Research Platform</h3>
+    <img src="images/hybrid_powertrain.jpg" alt="Hybrid Powertrain" style="width:200px; float:right; margin:10px;">
+    <p>To provide an accurate and flexible hybrid powertrain emulation tool for hybrid powertrain development, a rapid prototyping hybrid powertrain research platform, which employs a transient hydrostatic dynamometer that emulates the dynamics of various hybrid power sources and different hybrid architectures, is constructed. This will greatly expedite the research on various hybrid powertrain architectures and control methodologies, without actually building the complete physical system.</p>
+  </div>
+
+</section>
+
       <!-- Publications -->
       <section id="tab-publications" class="card" role="tabpanel" aria-labelledby="tabbtn-publications" data-tab>
         <p>Publications will be listed here.</p>
@@ -181,7 +251,7 @@
       const tabs = [
         { btn: 'tabbtn-description', panel: 'tab-description', hash: '#description' },
         { btn: 'tabbtn-people',       panel: 'tab-people',       hash: '#people' },
-        { btn: 'tabbtn-research',     panel: 'tab-research',     hash: '#research' },
+        { btn: 'tabbtn-Research',     panel: 'tab-Research',     hash: '#Research' },
         { btn: 'tabbtn-publications', panel: 'tab-publications', hash: '#publications' },
         { btn: 'tabbtn-news',         panel: 'tab-news',         hash: '#news' }
       ];
